@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#35136f">
+  <title>Revista digital | Educación Inclusiva</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">EI</span><div><strong>Educación Inclusiva</strong><small>Revista digital interactiva</small></div></div>
+    <a class="source-link" href="https://www.tiktok.com/@docentes_al_dia/video/7642435525403626773" target="_blank" rel="noopener noreferrer">Ver TikTok original ↗</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">REVISTA DIGITAL</p>
+      <h1>Educación inclusiva</h1>
+      <p>Explora la revista pasando las páginas. En computadora se muestran dos páginas; en móvil, una página a la vez.</p>
+    </section>
+
+    <section class="reader" aria-label="Lector de revista">
+      <div class="book-stage">
+        <div id="book">
+          <!-- Las páginas se generan desde script.js -->
+        </div>
+      </div>
+      <div class="controls">
+        <button id="prev" class="nav-button" type="button" aria-label="Página anterior">← <span>Anterior</span></button>
+        <div class="page-status"><span id="page-current">1–2</span><span class="status-divider">/</span><span id="page-total">18</span></div>
+        <button id="next" class="nav-button primary" type="button" aria-label="Página siguiente"><span>Siguiente</span> →</button>
+      </div>
+      <p class="hint">También puedes usar las flechas del teclado o tocar/deslizar las páginas.</p>
+    </section>
+
+    <section class="video-note">
+      <div class="video-note-icon">▶</div>
+      <div>
+        <strong>Video complementario</strong>
+        <p>El espacio del TikTok está previsto en la página 12. Para reproducir el archivo descargado, colócalo en <code>assets/tiktok.mp4</code>. El enlace original permanece disponible arriba.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Revista educativa · Diseño original realizado en Canva</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
