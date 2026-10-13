@@ -21,7 +21,7 @@ img.loading = n <= 4 ? 'eager' : 'lazy';
 
 if (n === 7) {
   const link = document.createElement('a');
-  link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309&utm_';
+ link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
   link.setAttribute('aria-label', 'Consultar el artículo de Ciencia Latina');
