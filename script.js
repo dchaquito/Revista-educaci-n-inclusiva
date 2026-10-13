@@ -20,19 +20,7 @@ img.alt = `Página ${n} de la revista Educación Inclusiva`;
 img.loading = n <= 4 ? 'eager' : 'lazy';
 
 if (n === 7) {
-  const link = document.createElement('a');
- link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309';
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  link.setAttribute('aria-label', 'Consultar el artículo de Ciencia Latina');
-
-  link.style.display = 'block';
-  link.style.width = '100%';
-  link.style.height = '100%';
-  link.style.cursor = 'pointer';
-
-  link.appendChild(img);
-  page.appendChild(link);
+page.appendChild(img);
 } else {
   page.appendChild(img);
 }
