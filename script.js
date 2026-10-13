@@ -37,7 +37,13 @@ if (n === 7) {
 
   page.style.position = 'relative';
   page.appendChild(link);
-}
+link.style.display = 'block';
+link.style.pointerEvents = 'auto';
+
+link.addEventListener('click', (event) => {
+  event.stopPropagation();
+  window.open(link.href, '_blank', 'noopener,noreferrer');
+});
 
 
     // La página 12 corresponde a la mitad derecha de la página 6 del PDF,
