@@ -8,46 +8,45 @@
 
   totalEl.textContent = String(pageCount);
 
-  for (let n = 1; n <= pageCount; n++) {
+ for (let n = 1; n <= pageCount; n++) {
     const page = document.createElement('div');
     page.className = 'page';
 
     const img = document.createElement('img');
     img.className = 'page-art';
     img.src = `assets/pages/page-${String(n).padStart(2, '0')}.jpg`;
-   
-img.alt = `Página ${n} de la revista Educación Inclusiva`;
-img.loading = n <= 4 ? 'eager' : 'lazy';
+    img.alt = `Página ${n} de la revista Educación Inclusiva`;
+    img.loading = n <= 4 ? 'eager' : 'lazy';
 
-page.appendChild(img);
+    // Mostrar un mensaje si la imagen no existe
+    img.onerror = () => {
+      console.error('No se pudo cargar la imagen:', img.src);
+      img.alt = `No se encontró la imagen de la página ${n}`;
+    };
 
-if (n === 7) {
-  const link = document.createElement('a');
-  link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309';
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  link.setAttribute('aria-label', 'Consultar artículo de Ciencia Latina');
+    page.appendChild(img);
 
-  link.style.position = 'absolute';
-  link.style.left = '0';
-  link.style.bottom = '0';
-  link.style.width = '100%';
-  link.style.height = '20%';
-  link.style.zIndex = '10';
+    if (n === 7) {
+      const link = document.createElement('a');
+      link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', 'Consultar artículo de Ciencia Latina');
 
-  page.style.position = 'relative';
-  page.appendChild(link);
-link.style.display = 'block';
-link.style.pointerEvents = 'auto';
+      Object.assign(link.style, {
+        position: 'absolute',
+        left: '0',
+        bottom: '0',
+        width: '100%',
+        height: '20%',
+        zIndex: '10',
+        display: 'block'
+      });
 
-link.addEventListener('click', (event) => {
-  event.stopPropagation();
-  window.open(link.href, '_blank', 'noopener,noreferrer');
-});
+      page.style.position = 'relative';
+      page.appendChild(link);
+    }
 
-
-    // La página 12 corresponde a la mitad derecha de la página 6 del PDF,
-    // donde Canva dejó el espacio destinado al TikTok.
     if (n === 12) {
       const overlay = document.createElement('div');
       overlay.className = 'video-overlay';
@@ -58,22 +57,27 @@ link.addEventListener('click', (event) => {
       video.controls = true;
       video.playsInline = true;
       video.preload = 'metadata';
-      video.setAttribute('aria-label', 'Video complementario sobre estrategias para alumnos con BAP');
+      video.setAttribute(
+        'aria-label',
+        'Video complementario sobre estrategias para alumnos con BAP'
+      );
 
       const placeholder = document.createElement('div');
       placeholder.className = 'video-placeholder';
-      placeholder.innerHTML = '<div class="play">▶</div><strong>Video TikTok</strong><span>Agrega tu MP4 a:</span><br><code>assets/tiktok.mp4</code>';
+      placeholder.innerHTML =
+        '<div class="play">▶</div><strong>Video TikTok</strong>' +
+        '<span>Agrega tu MP4 a:</span><br><code>assets/tiktok.mp4</code>';
 
       video.addEventListener('error', () => {
         video.hidden = true;
         placeholder.hidden = false;
       });
+
       video.addEventListener('loadeddata', () => {
         video.hidden = false;
         placeholder.hidden = true;
       });
 
-      // Si el MP4 no se ha agregado todavía, se muestra una indicación en su lugar.
       video.hidden = true;
       overlay.append(video, placeholder);
       page.appendChild(overlay);
