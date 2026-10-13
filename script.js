@@ -15,9 +15,28 @@
     const img = document.createElement('img');
     img.className = 'page-art';
     img.src = `assets/pages/page-${String(n).padStart(2, '0')}.jpg`;
-    img.alt = `Página ${n} de la revista Educación Inclusiva`;
-    img.loading = n <= 4 ? 'eager' : 'lazy';
-    page.appendChild(img);
+   
+img.alt = `Página ${n} de la revista Educación Inclusiva`;
+img.loading = n <= 4 ? 'eager' : 'lazy';
+
+if (n === 7) {
+  const link = document.createElement('a');
+  link.href = 'https://dialnet.unirioja.es/servlet/articulo?codigo=10256309&utm_';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', 'Consultar el artículo de Ciencia Latina');
+
+  link.style.display = 'block';
+  link.style.width = '100%';
+  link.style.height = '100%';
+  link.style.cursor = 'pointer';
+
+  link.appendChild(img);
+  page.appendChild(link);
+} else {
+  page.appendChild(img);
+}
+
 
     // La página 12 corresponde a la mitad derecha de la página 6 del PDF,
     // donde Canva dejó el espacio destinado al TikTok.
