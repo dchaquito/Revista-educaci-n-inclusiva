@@ -457,6 +457,10 @@
       addVideo(page);
     }
 
+    if (n === 18) {
+  addCrossword(page);
+}
+    
     bookEl.appendChild(page);
   }
 
