@@ -658,3 +658,23 @@ footer {
     font-size: 6px;
   }
 }
+
+
+/* Permitir interacción con el crucigrama */
+.crossword-page {
+  pointer-events: auto !important;
+  touch-action: auto;
+}
+
+.crossword-page input,
+.crossword-page button {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 5;
+}
+
+.crossword-cell input {
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+}
