@@ -496,6 +496,18 @@
       showPageCorners: true
     });
 
+    
+const crossword = bookEl.querySelector('.crossword-page');
+
+if (crossword) {
+  ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(type => {
+    crossword.addEventListener(type, event => {
+      event.stopPropagation();
+    }, true);
+  });
+}
+
+    
     pageFlip.loadFromHTML(bookEl.querySelectorAll('.page'));
   } catch (error) {
     statusEl.textContent =
